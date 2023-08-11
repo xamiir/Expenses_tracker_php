@@ -1,0 +1,12 @@
+{
+  "name": "bashi/projectphp1",
+  "description": "A PHP application tracker expenses.",
+  "type": "project",
+  "require": {},
+  "autoload": {
+    "psr-4": {
+      "Framework\\": "src/Framework",
+      "App\\": "src/App"
+    }
+  }
+}
