@@ -7,6 +7,21 @@ require __DIR__ . "/../../vendor/autoload.php";
 
 use Framework\App;
 
+
+use function App\config\registerRoutes;
+
+
 $app = new App();
+
+registerRoutes($app);
+
+
+
+
+// $app->get("/", [HomeController::class, "home"]);
+
+// $app->getRouter()->add("/");
+
+
 
 return $app;

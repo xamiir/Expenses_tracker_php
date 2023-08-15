@@ -14,6 +14,18 @@ class App
     }
     public function run()
     {
-        echo "running is Application";
+        $path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+        $method = $_SERVER['REQUEST_METHOD'];
+        $this->router->dispatch($path, $method);
+    }
+
+    // public function getRouter(): Router
+    // {
+    //     return $this->router;
+    // }
+    public function get(string $path, array $controller)
+    {
+        $this->router->add("GET", $path,  $controller);
+        // $this->router->add($path, "GEt", $controller);
     }
 };
