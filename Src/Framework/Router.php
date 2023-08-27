@@ -4,11 +4,14 @@ declare(strict_types=1);
 
 namespace Framework;
 
+use ReflectionClass;
+
 class Router
 
 {
 
     private array $routes = [];
+    private array $middlewares = [];
     public function add(String $path, String $method, array $controller)
     {
         $path = $this->normalizepath($path);
@@ -27,23 +30,13 @@ class Router
     }
 
 
-    public function dispatch(string $method, string $path)
+    public function dispatch(string $method, string $path, Container $container)
     {
         $path = $this->normalizepath($path);
         $method = strtoupper($method);
 
 
-        // foreach ($this->routes as $route) {
-        //     if ($route['path'] === $path && $route['method'] === $method) {
-        //         continue;
-        //     }
-        //     echo "ok";
 
-        //     [$controller, $action] = $route['controller'];
-        //     $controllers = new $controller();
-        //     $controllers->{$action}();
-        //     return;
-        // }
 
         foreach ($this->routes as $route) {
 
@@ -54,8 +47,12 @@ class Router
                 continue;
             }
             [$class, $action] = $route['controller'];
-            $controller = new $class();
+            $controller = $container ? $container->resolve($class) : new $class;
             $controller->{$action}();
         }
+    }
+    public function addMiddleware(string  $middlewares)
+    {
+        $this->middlewares[] = $middlewares;
     }
 }

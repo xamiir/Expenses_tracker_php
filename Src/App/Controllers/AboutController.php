@@ -13,11 +13,11 @@ use App\config\paths;
 class AboutController
 {
 
-    private TemplateEngine $view;
 
-    public function __construct()
+
+    public function __construct(private TemplateEngine $view)
     {
-        $this->view = new TemplateEngine(paths::VIEW);
+        // $this->view = new TemplateEngine(paths::VIEW);
     }
 
     public function about()

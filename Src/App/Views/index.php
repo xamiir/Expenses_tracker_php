@@ -33,6 +33,7 @@
     <table class="table-auto min-w-full divide-y divide-gray-300 mt-6">
         <thead class="bg-gray-50">
             <tr>
+                
                 <th class="p-4 text-left text-sm font-semibold text-gray-900">
                     Description
                 </th>
