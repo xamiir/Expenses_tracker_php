@@ -12,6 +12,7 @@ use ReflectionType;
 
 class Container
 {
+    private array $resolved = [];
     private array $definitions = [];
 
     public function addDefinitions(array $newDefinitions)
@@ -61,9 +62,14 @@ class Container
         if (!array_key_exists($id, $this->definitions)) {
             throw new ContainerExceptions("{$id} is not defined");
         }
+        if (array_key_exists($id, $this->resolved)) {
+            return $this->resolved[$id];
+        }
 
         $factory = $this->definitions[$id];
         $dependency = $factory($this);
+
+        $this->resolved[$id] = $dependency;
 
         return $dependency;
     }

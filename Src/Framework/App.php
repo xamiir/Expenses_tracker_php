@@ -37,6 +37,13 @@ class App
         // $this->router->add($path, "GEt", $controller);
     }
 
+    public function post(string $path, array $controller)
+    {
+        $this->router->add("POST", $path,  $controller);
+
+        // $this->router->add($path, "GEt", $controller);
+    }
+
     public function addMiddleware(string $middlewares)
     {
         $this->router->addMiddleware($middlewares);

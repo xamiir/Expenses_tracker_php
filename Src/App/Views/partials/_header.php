@@ -17,7 +17,7 @@
 <body class="bg-indigo-50 font-['Outfit']">
 
     <header class="bg-indigo-900">
-        <nav class="mx-auto flex container items-center justify-between py-4" aria-label="Global">
+        <nav class="mx-auto flex container items-center justify-between py-2" aria-label="Global">
             <a href="/" class="-m-1.5 p-1.5 text-white text-2xl font-bold">Expense Tracker </a>
             <!-- Navigation Links -->
             <div class="flex lg:gap-x-10">

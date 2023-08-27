@@ -21,13 +21,7 @@ class HomeController
 
     public function index()
     {
-        $this->view->render(
-            '/index.php',
-            [
-                'title' => 'Home pages',
-                'content' => 'Welcome to the home page'
-            ]
-        );
+        $this->view->render('/index.php');
         //title home page
 
     }
